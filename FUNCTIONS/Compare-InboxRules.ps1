@@ -24,8 +24,5 @@ Function Compare-InboxRules {
             }
         }
     }
-    #if ($diffs) {return ($diffs | Select-Object *)}
     return ($diffs | Select-Object *)
 }
-
-#Compare-InboxRule $a $b[1]
