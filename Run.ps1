@@ -1,15 +1,6 @@
-# Import functions
-$Path = [System.IO.Path]::Combine($PSScriptRoot, 'FUNCTIONS')
-Get-Childitem $Path -Filter *.ps1 -Recurse | Foreach-Object {
-    . $_.Fullname
-}
-# ................
+Remove-Module ExchangeInboxRuleChangeMonitor -ErrorAction SilentlyContinue
+Import-Module $PSScriptRoot\ExchangeInboxRuleChangeMonitor.psd1
 
-$a = @(Import-Clixml .\a.xml)
-$b = @(Import-Clixml .\b.xml)
-$finalResult = @()
-foreach ($i in $b) {
-    $ref = ($a | Where-Object { $_.Identity -eq ($i.Identity) })
-    if ($ref) {$finalResult += (Compare-InboxRules $ref $i)}
-}
-return $finalResult
+$ReferenceRule = @(Import-Clixml .\june.xml)
+
+Get-InboxRuleChangeReport -Mailbox june@poshlab.ml -ReferenceRule $ReferenceRule

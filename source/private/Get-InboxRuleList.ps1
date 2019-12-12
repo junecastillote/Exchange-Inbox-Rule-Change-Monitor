@@ -1,4 +1,4 @@
-Function Get-InboxRulesList {
+Function Get-InboxRuleList {
     [cmdletbinding()]
     param(
         [parameter(Mandatory)]
