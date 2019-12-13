@@ -1,6 +1,7 @@
 Remove-Module ExchangeInboxRuleChangeMonitor -ErrorAction SilentlyContinue
-#Import-Module $PSScriptRoot\ExchangeInboxRuleChangeMonitor.psd1
 Import-Module .\ExchangeInboxRuleChangeMonitor.psd1
+#Import-Module $PSScriptRoot\ExchangeInboxRuleChangeMonitor.psd1
+
 
 $Mailbox = 'june@poshlab.ml'
 $ReferenceRule = @(Import-Clixml .\june.xml)

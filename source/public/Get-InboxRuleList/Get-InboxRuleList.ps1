@@ -36,8 +36,8 @@ Function Get-InboxRuleList {
         }
     }
 
-    $NewRule | Add-Member -MemberType NoteProperty -Value "New" -Name RuleState -Force
-    $DeletedRule | Add-Member -MemberType NoteProperty -Value "Removed" -Name RuleState -Force
+    $NewRule | Add-Member -MemberType NoteProperty -Value "Added" -Name RuleState -Force
+    $DeletedRule | Add-Member -MemberType NoteProperty -Value "Deleted" -Name RuleState -Force
     $NormalRule | Add-Member -MemberType NoteProperty -Value "Normal" -Name RuleState -Force
 
     $FinalResult = ($NewRule + $DeletedRule + $NormalRule)

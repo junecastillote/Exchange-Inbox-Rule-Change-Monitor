@@ -1,4 +1,4 @@
-Function Compare-InboxRules {
+Function Compare-InboxRule {
     [cmdletbinding()]
     Param(
         [string]$Mailbox,

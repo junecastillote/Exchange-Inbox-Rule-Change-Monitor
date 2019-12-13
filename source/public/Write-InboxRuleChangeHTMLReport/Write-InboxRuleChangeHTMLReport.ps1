@@ -30,7 +30,7 @@ Function Write-InboxRuleChangeHTMLReport {
 
     # Build the HTML report
     $css = Get-Content (($ModuleInfo.ModuleBase.ToString()) + '\source\resource\style.css') -Raw
-    $title = "Inbox Rule Change Detected on Mailbox - $($Mailbox)"
+    $title = "Inbox Rules Changed - $($Mailbox)"
 
     $html += '<html><head><title>' + $title + '</title>'
     $html += '<style type="text/css">'
@@ -57,7 +57,7 @@ Function Write-InboxRuleChangeHTMLReport {
     }
     $html += '</table>'
     $html += '<p style="font-family:Tahoma;"><br><br><br><br>'
-    $html += '<a href="'+ $ModuleInfo.ProjectUri +'">'+($ModuleInfo.Name)+'</a>'
+    $html += '<a href="' + $ModuleInfo.ProjectUri + '">' + ($ModuleInfo.Name) + ' v' +($ModuleInfo.Version.ToString())+ '</a>'
     $html += '</p>'
     $html += '</body></html>'
     $html | Out-File $Path -Encoding utf8 -Force

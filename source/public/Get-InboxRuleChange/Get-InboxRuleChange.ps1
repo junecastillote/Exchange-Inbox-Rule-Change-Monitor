@@ -20,7 +20,7 @@ Function Get-InboxRuleChange {
             $ref = ($ReferenceRule | Where-Object { $_.Identity -eq ($i.Identity) })
             if ($ref) {
                 Write-Verbose "Compare rule: $($ref.Name)"
-                $finalResult += (Compare-InboxRules -Mailbox $Mailbox -ReferenceRule $ref -DifferenceRule $i)
+                $finalResult += (Compare-InboxRule -Mailbox $Mailbox -ReferenceRule $ref -DifferenceRule $i)
             }
         }
         return $finalResult
