@@ -20,7 +20,7 @@ Function Compare-InboxRules {
                 $diffprops = [ordered]@{
                     Mailbox      = $Mailbox
                     RuleID       = $ReferenceRule.Identity
-                    RuleName     = $ReferenceRule.Name
+                    RuleName     = $DifferenceRule.Name
                     PropertyName = $property
                     OldValue     = ($diff | Where-Object { $_.SideIndicator -eq '<=' }).$property
                     NewValue     = ($diff | Where-Object { $_.SideIndicator -eq '=>' }).$property

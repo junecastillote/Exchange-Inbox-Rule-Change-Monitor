@@ -1,4 +1,4 @@
-Function Get-InboxRuleChangeReport {
+Function Get-InboxRuleChange {
     [CmdletBinding()]
     param(
         [parameter(Mandatory)]

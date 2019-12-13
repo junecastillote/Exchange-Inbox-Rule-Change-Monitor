@@ -3,7 +3,7 @@ Function Get-InboxRuleList {
     param(
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
-        [PSObject]$OldRules,
+        [PSObject]$ReferenceRules,
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
         [PSObject]$CurrentRules
@@ -16,7 +16,7 @@ Function Get-InboxRuleList {
 
     # Find removed rules
     # If Rule is present in Old and not present in Current, it is considered removed
-    foreach ($Rule in $OldRules) {
+    foreach ($Rule in $ReferenceRules) {
         if (!($CurrentRules | Where-Object { $_.Identity -EQ $Rule.Identity })) {
             $DeletedRule += $Rule
         }
@@ -28,7 +28,7 @@ Function Get-InboxRuleList {
     # Find added rules
     # If Rule is present in Current and not present in Old, it is considered Added
     foreach ($Rule in $CurrentRules) {
-        if (!($OldRules | Where-Object { $_.Identity -EQ $Rule.Identity })) {
+        if (!($ReferenceRules | Where-Object { $_.Identity -EQ $Rule.Identity })) {
             $NewRule += $Rule
         }
         else {
