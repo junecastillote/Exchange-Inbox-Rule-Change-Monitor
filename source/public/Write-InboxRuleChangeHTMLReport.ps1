@@ -29,7 +29,7 @@ Function Write-InboxRuleChangeHTMLReport {
     $ModuleInfo = Get-Module ExchangeInboxRuleChangeMonitor
 
     # Build the HTML report
-    $css = Get-Content (($ModuleInfo.ModuleBase.ToString()) + '\source\private\style.css') -Raw
+    $css = Get-Content (($ModuleInfo.ModuleBase.ToString()) + '\source\resource\style.css') -Raw
     $title = "Inbox Rule Change Detected on Mailbox - $($Mailbox)"
 
     $html += '<html><head><title>' + $title + '</title>'
